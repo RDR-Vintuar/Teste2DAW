@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista</h2>
+<div ng-controller="AlugerController">
+    @*<div>
+
+        <table class="table table-striped">
+            <tr>
+                <td>
+Boas
+                </td>
+                <td>{{Boas}}</td>
+            </tr>
+            <tr>
+                <td>Razoaveis :</td>
+                <td>{{Razoaveis}}</td>
+            </tr>
+            <tr>
+                <td> Mas :</td>
+                <td>{{Mas}}</td>
+            </tr>
+        </table>
+    </div>*@
+    
+    <br />
+    <div style="text-align:center; width:550px">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Filme</th>
+                   
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="item in Filmelist">
+                    <td>{{item.Titulo}}</td>
+                    
+
+                    <td><input type="button" data-ng-click="edit(item)" value="Editar" /></td>
+                    <td><input type="button" data-ng-click="delete(item)" value="Remover" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@section scripts{
+
+    <script src="~/Scripts/AngularControllers/AlugerController.js"></script>
+}

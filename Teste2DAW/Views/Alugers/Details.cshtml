@@ -1,0 +1,74 @@
+﻿@model Teste2DAW.Models.Aluger
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Aluger</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Copia.CopiaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Copia.CopiaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utente.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataEmpretimo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataEmpretimo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataEmtrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataEmtrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.devolvida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.devolvida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Multa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Multa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AlugerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

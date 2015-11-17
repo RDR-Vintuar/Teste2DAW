@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Part5";
+}
+
+<h2> Aluger </h2>
+
+<style>
+    input {
+        padding: 5px;
+        border: 1px solid #A5A5A5;
+    }
+
+        input.ng-dirty.ng-invalid {
+            border: 1px solid red;
+            background-color: rgb(255,244,244);
+        }
+
+    .error {
+        color: red;
+    }
+</style>
+
+
+@*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>*@
+<div ng-controller="AlugerController">
+    {{Mensagem}}
+
+        <div ng-show="!Registo">
+            <form ng-submit="SaveData()">
+                <table class="table" style="width:500px">
+                    <tr>
+                        <td style="padding:10px; font-weight:bold; border:1px solid #f3f3f3 ">
+
+                        </td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>  Utente :  </td>
+                        <td>
+                            <select ng-model="Aluger.UtenteID" ng-options="C.UtenteID as C.Nome for C in UtenteList">
+                                <option value="">Selecione um utente</option>
+
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>  Data Devolucao :    </td>
+                        <td>
+                            <input type="datetime" ng-model="Aluger.datadevolucao" />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" ng-disabled="!Aluger.UtenteID || !Aluger.datadevolucao" value="Seguinte" />
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+
+        </div>
+    
+        <div ng-show="Registo">
+            {{CopiaList}}
+            <table class="table" style="width:500px">
+                <tbody>
+
+                    <tr>
+            <td> Filme :</td>
+                        <td>
+
+                            <select ng-model="FilmeID" ng-options="C.FilmeID as C.Titulo for C in FilmeList" ng-change="GetCopias()">
+                                <option value="">Selecione um </option>
+
+                            </select>
+
+                        </td>
+
+                        <td>    Copia :   </td>
+                        <td>
+                            <select ng-model="CopiaID" ng-disabled="!FilmeID" ng-options="C.CopiaID as C.CopiaID for C in CopiaList">
+                                <option value="">{{textoComboBoxes}}</option>
+                            </select>
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="button" ng-click="save()" value="Savar" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="button" ng-click="update()" value="Actulizar" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <div style="text-align:center; width:550px">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Filme</th>
+                            <th>Copia numero</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="item in Opcaolist">
+                            <td>{{item.filme}}</td>
+                            <td>{{item.CopiaID}}</td>
+
+                            <td><input type="button" data-ng-click="edit(item)" value="Editar" /></td>
+                            <td><input type="button" data-ng-click="delete(item)" value="Remover" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+
+@section scripts{
+    
+<script src="~/Scripts/AngularControllers/AlugerController.js"></script>
+}

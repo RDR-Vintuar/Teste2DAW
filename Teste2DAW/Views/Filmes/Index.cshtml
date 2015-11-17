@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Teste2DAW.Models.Filme>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div ng-controller="HomeController">
+    {{message}}
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.Designacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sinopse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActorPrincipal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActorSecundario)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.Designacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sinopse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActorPrincipal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActorSecundario)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.FilmeID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.FilmeID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FilmeID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

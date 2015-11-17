@@ -1,0 +1,48 @@
+﻿@model Teste2DAW.Models.Copia
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Copia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado.Designacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado.Designacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Filme.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Filme.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.disponivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.disponivel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
